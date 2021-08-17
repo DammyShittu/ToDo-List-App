@@ -8,19 +8,25 @@
 </head>
 <body>
    <section id="to-do">
-     <div class="todo-title">
-       <h1>Today's To Do</h1>
-       <button type="submit"><i class="fas fa-sync"></i></button>
+     <h1>TO DO APP</h1>
+     <div class="to-do-child">
+      <div class="todo-title">
+        <h2>Today's To Do</h2>
+        <button type="submit"><i class="fas fa-sync fa-xs"></i></button>
+      </div>
+ 
+      <form id="form">
+       <input type="text" placeholder="Add to your list..." class="text">
+       <button type="submit"><i class="fas fa-reply fa-xs"></i></button>
+      </form>
+      
+      <ul id="todo-lists">
+       
+      </ul>
+
+      <a href="#" class="clear-completed">Clear all completed</a>
      </div>
-
-     <form>
-      <input type="text" placeholder="Add to your list...">
-      <button type="submit"><i class="fas fa-reply"></i></button>
-     </form>
-     
-     <ul id="todo-lists">
-
-     </ul>
+    
    </section>
 </body>
 </html>

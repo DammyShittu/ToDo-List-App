@@ -11,3 +11,127 @@ body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 16px;
 }
+
+#to-do {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 30px;
+  color: brown;
+  text-align: center;
+}
+
+.to-do-child {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 5px;
+  height: auto;
+}
+
+.todo-title,
+#form,
+.task {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dadadc;
+  height: auto;
+  width: 95%;
+  margin: 0 auto;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.todo-title h2,
+#todo-lists li label {
+  color: #545862;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+button,
+.text,
+label {
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: #fff;
+}
+
+label:hover {
+  cursor: text;
+}
+
+button i {
+  color: #c3c4c7;
+  transition: 250ms ease-in-out;
+}
+
+button i:hover {
+  color: #545862;
+  cursor: pointer;
+}
+
+.text {
+  font-size: 12px;
+  caret-color: red;
+  color: #545862;
+  width: 70%;
+}
+
+.text::placeholder {
+  font-style: italic;
+  opacity: 0.5;
+}
+
+#todo-lists {
+  margin: 0;
+  padding: 0;
+}
+
+#todo-lists li {
+  list-style: none;
+}
+
+#todo-lists li input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#todo-lists li button i:hover {
+  cursor: move;
+}
+
+.clear-completed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-decoration: none;
+  color: #000;
+  opacity: 0.8;
+  font-size: 13px;
+  height: 30px;
+  background-color: #c3c4c7;
+  transition: 300ms;
+}
+
+.clear-completed:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+
+@media all and (min-width:768px) {
+  .to-do-child {
+    width: 45%;
+    margin: 0 auto;
+  }
+}
