@@ -33,6 +33,8 @@ h1 {
   background-color: #fff;
   border-radius: 5px;
   height: auto;
+  box-shadow: 2px 2px 4px #4a4c52;
+  margin-bottom: 20px;
 }
 
 .todo-title,
