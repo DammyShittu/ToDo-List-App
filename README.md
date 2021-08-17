@@ -13,7 +13,7 @@
 
 # Live Website
 
-Click [here](https://dammyshittu.github.io/ToDo-List-App/) to view the website online.
+Click [here](https://todolistsappp.netlify.app/) to view the website online.
 
 
 # This project was built with:
