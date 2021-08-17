@@ -8,7 +8,7 @@
 
 ## To Do
 
-![Image of the desktop view](.src./screenshot.png)
+![Image of the desktop view](src\screenshot.png)
 
 
 # Live Website
@@ -63,10 +63,6 @@ Feel free to check the [issues page](https://github.com/DammyShittu/WeSingAfrica
 # Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Kudos to [Cindy Shin](https://www.behance.net/adagio07) for providing an amazing design on Behance.
 
 # 📝 License
 
