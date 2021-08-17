@@ -8,7 +8,7 @@
 
 ## To Do
 
-![Image of the desktop view](src\screenshot.png)
+![Image of the mobile view](./src/screenshot.png)
 
 
 # Live Website
