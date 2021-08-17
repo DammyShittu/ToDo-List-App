@@ -52,13 +52,6 @@ h1 {
   padding-bottom: 10px;
 }
 
-.todo-title h2,
-#todo-lists li label {
-  color: #545862;
-  font-size: 13px;
-  font-weight: 400;
-}
-
 button,
 .text,
 label {
@@ -70,6 +63,13 @@ label {
 
 label:hover {
   cursor: text;
+}
+
+.todo-title h2,
+#todo-lists li label {
+  color: #545862;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 button i {
@@ -130,8 +130,7 @@ button i:hover {
   opacity: 1;
 }
 
-
-@media all and (min-width:768px) {
+@media all and (min-width: 768px) {
   .to-do-child {
     width: 45%;
     margin: 0 auto;
