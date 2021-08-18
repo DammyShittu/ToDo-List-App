@@ -33,9 +33,9 @@ const listContainer = document.getElementById('todo-lists');
 
 // Dynamically display tasks
 
-const showTasks = () => {
-  for (let i = 0; i < todoList.length; i += 1) {
-    const task = todoList[i];
+const showTasks = (tasks) => {
+  for (let i = 0; i < tasks.length; i += 1) {
+    const task = tasks[i];
     const list = ` <li class="task" id="${task.index}" draggable="true">
     <div>
       <input type="checkbox" class="box" id="list-box" name="list-box">
@@ -47,27 +47,46 @@ const showTasks = () => {
 
     listContainer.innerHTML += list;
 
-    if (task.completed === true) {
-      const checkbox = document.querySelector('.box');
-      checkbox.checked = true;
-    }
-
+  
     // Add Line Through When Checkbox Is Checked
     const box = document.querySelectorAll('.box');
     box.forEach((cb) => {
+      if (task.completed) {
+        cb.checked = true;
+      }
+
       cb.addEventListener('change', (event) => {
         completeTask(event.target, task);
       });
     });
-  }
 
-  // Make Label Editable On ouble Click
-  const label = document.querySelectorAll('label');
-  label.forEach((item) => {
-    item.addEventListener('dblclick', () => {
-      item.setAttribute('contenteditable', 'true');
+    // Make Label Editable On Double Click
+    const label = document.querySelectorAll('label');
+    label.forEach((item) => {
+      item.addEventListener('dblclick', () => {
+        item.setAttribute('contenteditable', 'true');
+      });
+
+      // Show Delete Icon On Focus
+      item.addEventListener('focus', () => {
+        const last = item.parentElement.parentElement.lastElementChild;
+        last.style.display = 'block';
+        item.parentElement.parentElement.style.backgroundColor = '#dadadc';
+
+        const ellipsis = item.parentElement.parentElement.lastElementChild.previousElementSibling;
+        ellipsis.style.display = 'none';
+      });
+
+      // Hide Delete Icon On Blur
+      item.addEventListener('blur', () => {
+        const last = item.parentElement.parentElement.lastElementChild;
+        last.style.display = 'none';
+        item.parentElement.parentElement.style.backgroundColor = '#fff';
+        const ellipsis = item.parentElement.parentElement.lastElementChild.previousElementSibling;
+        ellipsis.style.display = 'block';
+      });
     });
-  });
+  }
 };
 
-window.onload = showTasks;
+window.onload = showTasks(todoList);

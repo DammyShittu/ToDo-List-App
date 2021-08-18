@@ -43,13 +43,13 @@ h1 {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #dadadc;
-  height: auto;
+  min-height: 30px;
+  max-height: 70px;
   width: 95%;
   margin: 0 auto;
   align-items: center;
   gap: 15px;
-  margin-top: 10px;
-  padding-bottom: 10px;
+  padding: 0 5px;
 }
 
 button,
@@ -58,7 +58,7 @@ label {
   appearance: none;
   outline: none;
   border: none;
-  background-color: #fff;
+  background-color: inherit;
 }
 
 label {
@@ -82,7 +82,7 @@ button i {
 }
 
 button i:hover {
-  color: #545862;
+  color: brown;
   cursor: pointer;
 }
 
@@ -111,7 +111,7 @@ button i:hover {
   margin-right: 5px;
 }
 
-#todo-lists li button i:hover {
+#todo-lists .ellipsis i:hover {
   cursor: move;
 }
 
@@ -132,15 +132,23 @@ button i:hover {
 .clear-completed:hover {
   text-decoration: underline;
   opacity: 1;
+  color: brown;
 }
 
 .delete {
   display: none;
 }
 
+.delete i {
+  color: brown;
+}
+
+.delete i:hover {
+  cursor: pointer;
+}
+
 .line {
   text-decoration: line-through;
-  opacity: 0.5;
 }
 
 @media all and (min-width: 768px) {
