@@ -1,4 +1,5 @@
 import './style.css';
+import completeTask from './complete.js';
 
 const todoList = [
   {
@@ -16,6 +17,16 @@ const todoList = [
     completed: false,
     index: 3,
   },
+  {
+    description: 'Do laundry',
+    completed: false,
+    index: 3,
+  },
+  {
+    description: 'Do laundry',
+    completed: false,
+    index: 3,
+  },
 ];
 
 const listContainer = document.getElementById('todo-lists');
@@ -25,16 +36,38 @@ const listContainer = document.getElementById('todo-lists');
 const showTasks = () => {
   for (let i = 0; i < todoList.length; i += 1) {
     const task = todoList[i];
-    const list = ` <li class="task" id="${task.index}">
+    const list = ` <li class="task" id="${task.index}" draggable="true">
     <div>
       <input type="checkbox" class="box" id="list-box" name="list-box">
-      <label contenteditable="true">${task.description}</label>
+      <label class="form-label">${task.description}</label>
     </div>
-    <button type="submit"><i class="fas fa-ellipsis-v fa-xs"></i></button>
+    <button class="ellipsis"><i class="fas fa-ellipsis-v fa-xs"></i></button>
+    <button class="delete"><i class='fas fa-trash-alt'></i></button>
   </li>`;
 
     listContainer.innerHTML += list;
+
+    if (task.completed === true) {
+      const checkbox = document.querySelector('.box');
+      checkbox.checked = true;
+    }
+
+    // Add Line Through When Checkbox Is Checked
+    const box = document.querySelectorAll('.box');
+    box.forEach((cb) => {
+      cb.addEventListener('change', (event) => {
+        completeTask(event.target, task);
+      });
+    });
   }
+
+  // Make Label Editable On ouble Click
+  const label = document.querySelectorAll('label');
+  label.forEach((item) => {
+    item.addEventListener('dblclick', () => {
+      item.setAttribute('contenteditable', 'true');
+    });
+  });
 };
 
 window.onload = showTasks;

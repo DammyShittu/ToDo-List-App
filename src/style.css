@@ -61,6 +61,10 @@ label {
   background-color: #fff;
 }
 
+label {
+  padding-right: 200px;
+}
+
 label:hover {
   cursor: text;
 }
@@ -128,6 +132,15 @@ button i:hover {
 .clear-completed:hover {
   text-decoration: underline;
   opacity: 1;
+}
+
+.delete {
+  display: none;
+}
+
+.line {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
 @media all and (min-width: 768px) {
