@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
   margin-bottom: 30px;
   color: brown;
   text-align: center;
@@ -61,6 +61,10 @@ label {
   background-color: inherit;
 }
 
+label {
+  padding-right: 80px;
+}
+
 label:hover {
   cursor: text;
 }
@@ -68,7 +72,7 @@ label:hover {
 .todo-title h2,
 #todo-lists li label {
   color: #545862;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
 }
 
@@ -83,7 +87,7 @@ button i:hover {
 }
 
 .text {
-  font-size: 12px;
+  font-size: 14px;
   caret-color: red;
   color: #545862;
   width: 70%;
@@ -124,6 +128,7 @@ button i:hover {
   height: 30px;
   background-color: #c3c4c7;
   transition: 300ms;
+  font-size: 15px;
 }
 
 .clear-completed:hover {
@@ -157,5 +162,9 @@ button i:hover {
   .to-do-child {
     width: 45%;
     margin: 0 auto;
+  }
+
+  label {
+    padding-right: 180px;
   }
 }
