@@ -13,9 +13,14 @@ const todoList = [
     index: 2,
   },
   {
-    description: 'Do laundry',
+    description: 'Travel To Mars',
     completed: false,
-    index: 3,
+    index: 2,
+  },
+  {
+    description: 'Sleep',
+    completed: false,
+    index: 2,
   },
 ];
 
@@ -24,35 +29,23 @@ const SetLocalStorage = (lists) => {
   localStorage.setItem('myTasks', JSON.stringify(lists));
 };
 
+const getTasksFromLocalStorage = () => JSON.parse(localStorage.getItem('myTasks'));
+
 // Dynamically display tasks
 const listContainer = document.getElementById('todo-lists');
-const showTasks = (tasks) => {
+const showTasks = () => {
+  const tasks = getTasksFromLocalStorage();
   for (let i = 0; i < tasks.length; i += 1) {
-    const task = tasks[i];
-    const list = ` <li class="task" id="${task.index}" draggable="true">
+    const list = ` <li class="task" id="${tasks[i].index}" draggable="true">
     <div>
       <input type="checkbox" class="box" id="list-box" name="list-box">
-      <label class="form-label">${task.description}</label>
+      <label class="form-label">${tasks[i].description}</label>
     </div>
     <button class="ellipsis"><i class="fas fa-ellipsis-v fa-xs"></i></button>
     <button class="delete"><i class='fas fa-trash-alt'></i></button>
   </li>`;
 
     listContainer.innerHTML += list;
-
-    // if (task.completed) {
-    //   const box = document.querySelector('.box');
-    //   box.checked = true;
-    // }
-    // Add Line Through When Checkbox Is Checked
-    const box = document.querySelectorAll('.box');
-    box.forEach((cb) => {
-      cb.addEventListener('change', (event) => {
-        completeTask(event.target, tasks[i]);
-        console.log(tasks[i]);
-        SetLocalStorage(tasks);
-      });
-    });
 
     // Make Label Editable On Double Click
     const label = document.querySelectorAll('label');
@@ -81,15 +74,23 @@ const showTasks = (tasks) => {
       });
     });
   }
-  SetLocalStorage(tasks);
+  // Add Line Through When Checkbox Is Checked
+  const box = document.querySelectorAll('.box');
+  for (let j = 0; j < box.length; j += 1) {
+    box[j].checked = tasks[j].completed;
+    box[j].addEventListener('change', (event) => {
+      completeTask(event.target, tasks[j]);
+      SetLocalStorage(tasks);
+    });
+  }
 };
 
+// Get Tasks From Local Storage
 window.onload = () => {
-  const getTodo = JSON.parse(localStorage.getItem('myTasks'));
+  const getTodo = getTasksFromLocalStorage();
 
   if (getTodo === null) {
-    showTasks(todoList);
-  } else {
-    showTasks(todoList);
+    SetLocalStorage(todoList);
   }
+  showTasks();
 };

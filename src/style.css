@@ -61,10 +61,6 @@ label {
   background-color: inherit;
 }
 
-label {
-  padding-right: 200px;
-}
-
 label:hover {
   cursor: text;
 }
@@ -109,6 +105,7 @@ button i:hover {
 
 #todo-lists li input[type="checkbox"] {
   margin-right: 5px;
+  outline: 0;
 }
 
 #todo-lists .ellipsis i:hover {
@@ -149,6 +146,11 @@ button i:hover {
 
 .line {
   text-decoration: line-through;
+}
+
+.box:checked + .form-label {
+  text-decoration: line-through;
+  opacity: 0.6;
 }
 
 @media all and (min-width: 768px) {
