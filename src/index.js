@@ -17,22 +17,15 @@ const todoList = [
     completed: false,
     index: 3,
   },
-  {
-    description: 'Do laundry',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Do laundry',
-    completed: false,
-    index: 3,
-  },
 ];
 
-const listContainer = document.getElementById('todo-lists');
+// Set Tasks In Local Storage
+const SetLocalStorage = (lists) => {
+  localStorage.setItem('myTasks', JSON.stringify(lists));
+};
 
 // Dynamically display tasks
-
+const listContainer = document.getElementById('todo-lists');
 const showTasks = (tasks) => {
   for (let i = 0; i < tasks.length; i += 1) {
     const task = tasks[i];
@@ -47,16 +40,17 @@ const showTasks = (tasks) => {
 
     listContainer.innerHTML += list;
 
-  
+    // if (task.completed) {
+    //   const box = document.querySelector('.box');
+    //   box.checked = true;
+    // }
     // Add Line Through When Checkbox Is Checked
     const box = document.querySelectorAll('.box');
     box.forEach((cb) => {
-      if (task.completed) {
-        cb.checked = true;
-      }
-
       cb.addEventListener('change', (event) => {
-        completeTask(event.target, task);
+        completeTask(event.target, tasks[i]);
+        console.log(tasks[i]);
+        SetLocalStorage(tasks);
       });
     });
 
@@ -87,6 +81,15 @@ const showTasks = (tasks) => {
       });
     });
   }
+  SetLocalStorage(tasks);
 };
 
-window.onload = showTasks(todoList);
+window.onload = () => {
+  const getTodo = JSON.parse(localStorage.getItem('myTasks'));
+
+  if (getTodo === null) {
+    showTasks(todoList);
+  } else {
+    showTasks(todoList);
+  }
+};

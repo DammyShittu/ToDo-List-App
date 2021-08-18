@@ -1,12 +1,12 @@
-const completeTask = (box, task) => {
+const completeTask = (box, list) => {
   if (box.checked) {
     box.nextElementSibling.classList.add('line');
     box.parentElement.style.opacity = '0.6';
-    task.completed = true;
+    list.completed = true;
   } else {
     box.nextElementSibling.classList.remove('line');
     box.parentElement.style.opacity = '1';
-    task.completed = false;
+    list.completed = false;
   }
 };
 
