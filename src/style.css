@@ -148,10 +148,6 @@ button i:hover {
   display: none;
 }
 
-.line {
-  text-decoration: line-through;
-}
-
 .box:checked + .form-label {
   text-decoration: line-through;
   opacity: 0.6;

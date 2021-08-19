@@ -1,6 +1,6 @@
 import './style.css';
 import completeTask from './complete.js';
-import SetLocalStorage from './setLocalStorage.js';
+import { setLocalStorage, addToLocalStorage } from './setLocalStorage.js';
 import getTasksFromLocalStorage from './getTasks.js';
 
 // Dynamically display tasks
@@ -10,11 +10,10 @@ const showTasks = () => {
   listContainer.innerHTML = '';
   const tasks = getTasksFromLocalStorage();
   for (let i = 0; i < tasks.length; i += 1) {
-    const task = tasks[i];
-    const list = ` <li class="task" id="${task.index}" draggable="true">
+    const list = ` <li class="task" id="${tasks[i].index}" draggable="true">
     <div>
       <input type="checkbox" class="box" id="list-box" name="list-box">
-      <label class="form-label">${task.description}</label>
+      <label class="form-label">${tasks[i].description}</label>
     </div>
     <button class="ellipsis"><i class="fas fa-ellipsis-v fa-xs"></i></button>
     <button class="delete"><i class='fas fa-trash-alt'></i></button>
@@ -29,7 +28,7 @@ const showTasks = () => {
     box[j].checked = tasks[j].completed;
     box[j].addEventListener('change', (event) => {
       completeTask(event.target, tasks[j]);
-      SetLocalStorage(tasks);
+      setLocalStorage(tasks);
     });
   }
 };
@@ -56,7 +55,7 @@ const addTodoTask = (e) => {
   };
 
   clearInput();
-  SetLocalStorage(todo);
+  addToLocalStorage(todo);
   showTasks();
 };
 
@@ -90,5 +89,4 @@ label.forEach((item) => {
   });
 });
 
-// Get Tasks From Local Storage
-  showTasks();
+showTasks();
