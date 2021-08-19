@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
   margin-bottom: 30px;
   color: brown;
   text-align: center;
@@ -43,13 +43,13 @@ h1 {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #dadadc;
-  height: auto;
+  min-height: 30px;
+  max-height: 70px;
   width: 95%;
   margin: 0 auto;
   align-items: center;
   gap: 15px;
-  margin-top: 10px;
-  padding-bottom: 10px;
+  padding: 0 5px;
 }
 
 button,
@@ -58,7 +58,11 @@ label {
   appearance: none;
   outline: none;
   border: none;
-  background-color: #fff;
+  background-color: inherit;
+}
+
+label {
+  padding-right: 80px;
 }
 
 label:hover {
@@ -68,7 +72,7 @@ label:hover {
 .todo-title h2,
 #todo-lists li label {
   color: #545862;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
 }
 
@@ -77,13 +81,21 @@ button i {
   transition: 250ms ease-in-out;
 }
 
+.delete i {
+  color: brown;
+}
+
 button i:hover {
-  color: #545862;
+  color: brown;
+  cursor: pointer;
+}
+
+.delete i:hover {
   cursor: pointer;
 }
 
 .text {
-  font-size: 12px;
+  font-size: 14px;
   caret-color: red;
   color: #545862;
   width: 70%;
@@ -105,9 +117,10 @@ button i:hover {
 
 #todo-lists li input[type="checkbox"] {
   margin-right: 5px;
+  outline: 0;
 }
 
-#todo-lists li button i:hover {
+#todo-lists .ellipsis i:hover {
   cursor: move;
 }
 
@@ -119,20 +132,38 @@ button i:hover {
   text-decoration: none;
   color: #000;
   opacity: 0.8;
-  font-size: 13px;
   height: 30px;
   background-color: #c3c4c7;
   transition: 300ms;
+  font-size: 15px;
 }
 
 .clear-completed:hover {
   text-decoration: underline;
   opacity: 1;
+  color: brown;
+}
+
+.delete {
+  display: none;
+}
+
+.line {
+  text-decoration: line-through;
+}
+
+.box:checked + .form-label {
+  text-decoration: line-through;
+  opacity: 0.6;
 }
 
 @media all and (min-width: 768px) {
   .to-do-child {
     width: 45%;
     margin: 0 auto;
+  }
+
+  label {
+    padding-right: 180px;
   }
 }
