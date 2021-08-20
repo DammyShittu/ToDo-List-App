@@ -81,16 +81,8 @@ button i {
   transition: 250ms ease-in-out;
 }
 
-.delete i {
-  color: brown;
-}
-
 button i:hover {
   color: brown;
-  cursor: pointer;
-}
-
-.delete i:hover {
   cursor: pointer;
 }
 
@@ -144,13 +136,13 @@ button i:hover {
   color: brown;
 }
 
-.delete {
-  display: none;
-}
-
 .box:checked + .form-label {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+.opaque {
+  opacity: 0.8;
 }
 
 @media all and (min-width: 768px) {
