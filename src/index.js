@@ -13,8 +13,9 @@ const showTasks = () => {
     const list = ` <li class="task" id="${tasks[i].index}" data-key="${tasks[i].index}" draggable="true">
     <div>
       <input type="checkbox" class="box" id="list-box" name="list-box">
-      <label class="form-label" contenteditable="false" ondblclick="this.contenteditable=true">${tasks[i].description}</label>
+      <label class="form-label">${tasks[i].description}</label>
     </div>
+  
     <button id="${tasks[i].index}" class="delete"><i class='fas fa-trash-alt delete-task'></i></button>
   </li>`;
 
@@ -30,6 +31,24 @@ const showTasks = () => {
       setLocalStorage(tasks);
     });
   }
+
+  const label = document.querySelectorAll('.form-label');
+  label.forEach((item) => {
+    item.addEventListener('dblclick', () => {
+      item.setAttribute('contenteditable', 'true');
+    });
+
+    // Show Delete Icon On Focus
+    item.addEventListener('focus', () => {
+      item.parentElement.parentElement.style.backgroundColor = '#dadadc';
+    });
+
+    // Hide Delete Icon On Blur
+    item.addEventListener('blur', () => {
+      item.parentElement.parentElement.style.backgroundColor = '#fff';
+      setLocalStorage(tasks);
+    });
+  });
 };
 
 const input = document.querySelector('.text');
@@ -41,6 +60,7 @@ function clearInput() {
 // Add Task
 
 const addTodoTask = (e) => {
+  const tasks = getTasksFromLocalStorage();
   e.preventDefault();
 
   if (input.value === '') {
@@ -50,7 +70,7 @@ const addTodoTask = (e) => {
   const todo = {
     description: input.value,
     completed: false,
-    index: Date.now(),
+    index: tasks.length + 1,
   };
 
   clearInput();
@@ -58,20 +78,24 @@ const addTodoTask = (e) => {
   showTasks();
 };
 
+const setIndex = (tasks) => {
+  for (let i = 0; i < tasks.length; i += 1) {
+    tasks[i].index = i + 1;
+  }
+};
+
+// Make Label Editable On Double Click
+
 const form = document.getElementById('form');
 form.addEventListener('submit', addTodoTask);
 
 // Delete Tasks
 const deleteTodo = (key) => {
-  let tasks = getTasksFromLocalStorage();
-  const ind = tasks.findIndex((item) => item.index === Number(key));
-  const todo = {
-    deleted: true,
-    ...tasks[ind],
-  };
-  tasks = tasks.filter((item) => item.index !== Number(key));
+  const tasks = getTasksFromLocalStorage();
+  tasks.splice((key - 1), 1);
+  setIndex(tasks);
   setLocalStorage(tasks);
-  showTasks(todo);
+  showTasks();
 };
 
 // Event Listener To Delete One Task
@@ -85,13 +109,11 @@ listContainer.addEventListener('click', (event) => {
 // Remove Completed Tasks
 const removeCompletedTasks = () => {
   let tasks = getTasksFromLocalStorage();
-  tasks.forEach((tsk) => {
-    if (tsk.completed === true) {
-      tasks = tasks.filter((item) => item.completed === false);
-    }
-    setLocalStorage(tasks);
-    showTasks();
-  });
+  // let i = 1;
+  tasks = tasks.filter((item) => item.completed === false);
+  setIndex(tasks);
+  setLocalStorage(tasks);
+  showTasks();
 };
 
 const removeCompleted = document.querySelector('.clear-completed');
