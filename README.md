@@ -2,11 +2,11 @@
 
 # TO DO LIST
 
-> This project contains a to-do list project where tasks can be added, marked as completed and deleted.
-> Users can edit a task by double clicking on the task title section.
-> A task can be deleted by clicking on the trash can icon on the right side of each task.
-> Tasks can be marked as `completed` by clicking on the corresponding checkbox.
-> All completed tasks can be deleted at once by clicking the `Clear All Completed` button. 
+ This project contains a to-do list project where tasks can be added, marked as completed and deleted.
+ Users can edit a task by double clicking on the task title section.
+ A task can be deleted by clicking on the trash can icon on the right side of each task.
+ Tasks can be marked as `completed` by clicking on the corresponding checkbox.
+ All completed tasks can be deleted at once by clicking the `Clear All Completed` button. 
 
 # Project Name
 
