@@ -6,7 +6,6 @@ import setIndex from './index.js';
 // Remove Completed Tasks
 const removeCompletedTasks = () => {
   let tasks = getTasksFromLocalStorage();
-  // let i = 1;
   tasks = tasks.filter((item) => item.completed === false);
   setIndex(tasks);
   setLocalStorage(tasks);
