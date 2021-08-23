@@ -36,9 +36,9 @@ const addTodoTask = (e) => {
 };
 
 const setIndex = (tasks) => {
-  for (let i = 0; i < tasks.length; i += 1) {
-    tasks[i].index = i + 1;
-  }
+  tasks.forEach((task, index) => {
+    task.index = index + 1;
+  });
 };
 
 // Event Listener To Add Form

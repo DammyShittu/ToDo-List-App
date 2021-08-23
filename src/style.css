@@ -12,19 +12,48 @@ body {
   font-size: 16px;
 }
 
-#to-do {
-  height: 100vh;
+.clear-completed,
+#to-do,
+.todo-title,
+#form,
+.task {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#to-do {
+  height: 100vh;
+  flex-direction: column;
 }
 
 h1 {
   font-size: 60px;
   margin-bottom: 30px;
-  color: brown;
   text-align: center;
+}
+
+button i {
+  color: #c3c4c7;
+  transition: 250ms ease-in-out;
+}
+
+.clear-completed {
+  margin: 0 auto;
+  text-decoration: none;
+  color: #000;
+  opacity: 0.8;
+  height: 30px;
+  background-color: #c3c4c7;
+  transition: 300ms;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+h1,
+button i:hover,
+.clear-completed:hover {
+  color: brown;
 }
 
 .to-do-child {
@@ -40,14 +69,12 @@ h1 {
 .todo-title,
 #form,
 .task {
-  display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #dadadc;
   min-height: 30px;
   max-height: 70px;
   width: 95%;
   margin: 0 auto;
-  align-items: center;
   gap: 15px;
   padding: 0 5px;
 }
@@ -76,13 +103,7 @@ label:hover {
   font-weight: 400;
 }
 
-button i {
-  color: #c3c4c7;
-  transition: 250ms ease-in-out;
-}
-
 button i:hover {
-  color: brown;
   cursor: pointer;
 }
 
@@ -116,24 +137,9 @@ button i:hover {
   cursor: move;
 }
 
-.clear-completed {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  text-decoration: none;
-  color: #000;
-  opacity: 0.8;
-  height: 30px;
-  background-color: #c3c4c7;
-  transition: 300ms;
-  font-size: 15px;
-}
-
 .clear-completed:hover {
   text-decoration: underline;
   opacity: 1;
-  color: brown;
 }
 
 .box:checked + .form-label {
