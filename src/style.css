@@ -47,6 +47,7 @@ button i {
   background-color: #c3c4c7;
   transition: 300ms;
   font-size: 15px;
+  cursor: pointer
 }
 
 h1,
