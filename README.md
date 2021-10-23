@@ -54,7 +54,7 @@ To get a local copy up and running follow these simple steps.
 
 - Run `npm start` from your editor's terminal to view the project in your browser.
 
-- Run `npx hint` . to check for HTML Linter errors.
+- Run `npx eslint .` . to check for JavaScript Linter errors.
 
 - Run `npx stylelint "**/*.{css,scss}"` to check for CSS Linter errors.
 
