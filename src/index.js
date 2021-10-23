@@ -1,10 +1,10 @@
 /* eslint-disable import/no-cycle */
 import './style.css';
-import showTasks from './showTasks.js';
-import { addToLocalStorage } from './setLocalStorage.js';
-import getTasksFromLocalStorage from './getTasks.js';
-import deleteTodo from './deleteOne.js';
-import removeCompletedTasks from './clearCompleted.js';
+import showTasks from './showTasks';
+import { addToLocalStorage } from './setLocalStorage';
+import getTasksFromLocalStorage from './getTasks';
+import deleteTodo from './deleteOne';
+import removeCompletedTasks from './clearCompleted';
 
 const input = document.querySelector('.text');
 const form = document.getElementById('form');
